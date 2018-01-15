@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react'
+import { Menu, Header } from 'semantic-ui-react'
+import Main from './Main';
 
 export default class App extends Component {
 
@@ -11,8 +12,9 @@ export default class App extends Component {
 
 		const { activeItem } = this.state
 		return (
-			<div className="main">
+			<div className="App">
 				<Menu>
+					<Header size="large">FFXIV-Maps</Header>
 					<Menu.Item
 						name='main'
 						active={activeItem === 'main'}
@@ -35,8 +37,9 @@ export default class App extends Component {
 						Sim
 					</Menu.Item>
 				</Menu>
-      </div>
-    );
+				<Main />
+			</div>
+    )
   }
 }
 
