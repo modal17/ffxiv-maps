@@ -26,7 +26,7 @@ export default class Main extends Component {
 			<div className="main">
 				<Container>
 					<Grid>
-						<Header as='h2'> Bar Test </Header>
+						<Header as='h2'> Lost Canals of Uznair </Header>
 						<HorizontalBar
 							data = {data}
 							options = {{
@@ -38,8 +38,9 @@ export default class Main extends Component {
 											min: -100,
 											max: 100,
 											callback: (value, index, values) => {
-												return value < 0 ? Math.abs(value)+'%' : value+'%';
-											}
+												return value < 0 ? Math.abs(value)+'%' : value+'%'
+											},
+											stepSize: 25
 										}
 									}],
 									yAxes: [{

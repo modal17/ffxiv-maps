@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react'
 import Main from './Main';
+import Sim from './Sim';
+import Stats from './Stats';
 
 export default class App extends Component {
 
-	state = {}
-
+	state = { activeItem: 'main'}
+	
 	handleItemClick = (e, {name}) => this.setState({ activeItem: name})
-
+	
 	render() {
+		
+		let page = null;
+		const { activeItem } = this.state;
 
-		const { activeItem } = this.state
+		switch ( activeItem ) {
+			case 'main':
+				page = <Main />
+				break
+			case 'stats':
+				page = <Stats />
+				break
+			case 'sim':
+				page = <Sim />
+				break
+		}
+
 		return (
 			<div className="App">
 				<Menu>
@@ -37,7 +53,7 @@ export default class App extends Component {
 						Sim
 					</Menu.Item>
 				</Menu>
-				<Main />
+				{ page }
 			</div>
     )
   }
