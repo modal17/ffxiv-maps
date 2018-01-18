@@ -14,7 +14,7 @@ db = SQLAlchemy(app)    # Passing the database.
 class Floor(db.Model):
     ''' A floor is one of six floors of a map instance. '''
     id = db.Column(db.Integer, primary_key=True)
-    number = db.Column(db.Integer, unique=True)
+    fl_num = db.Column(db.Integer, unique=True)
     mob = db.Column(db.String(80))
     door = db.Column(db.String(8))
     map_id = db.Column(db.Integer, db.ForeignKey('map.id'), nullable=False)
@@ -40,3 +40,17 @@ endpoint_manager.create_api(Map, methods=['GET', 'POST', 'PUT']) # ex. -- /api/t
 ############### Resources ######################
 
 # TODO: Make resource urls to return statistical information
+
+class GetAggregateFloorData(Resource):
+    def get(self, fl_num):
+        #TODO: Return aggregate data of floor number
+        # - Total, left/right
+        # - 
+        return 200
+
+
+resource_manager.add_resource(GetAggregateFloorData, '/floor_aggr/<int:fl_num>')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
