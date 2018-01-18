@@ -19,14 +19,13 @@ const data = {
 }
 
 export default class Main extends Component {
-	displayName: 'Uznair Maps'
 
 	render() {
 		return (
 			<div className="main">
 				<Container>
 					<Grid>
-						<Header as='h2'> Lost Canals of Uznair </Header>
+						<Header as='h2' className="title"> {this.props.title} </Header>
 						<HorizontalBar
 							data = {data}
 							options = {{

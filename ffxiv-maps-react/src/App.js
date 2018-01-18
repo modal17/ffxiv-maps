@@ -17,7 +17,7 @@ export default class App extends Component {
 
 		switch ( activeItem ) {
 			case 'main':
-				page = <Main />
+				page = <Main title='Hello'/>
 				break
 			case 'stats':
 				page = <Stats />
