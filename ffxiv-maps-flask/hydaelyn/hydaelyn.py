@@ -16,6 +16,7 @@ class Floor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fl_num = db.Column(db.Integer, unique=True)
     mob = db.Column(db.String(80))
+    visitor = db.Column(db.Boolean)
     door = db.Column(db.String(8))
     map_id = db.Column(db.Integer, db.ForeignKey('map.id'), nullable=False)
 
@@ -39,17 +40,30 @@ endpoint_manager.create_api(Map, methods=['GET', 'POST', 'PUT']) # ex. -- /api/t
 
 ############### Resources ######################
 
-# TODO: Make resource urls to return statistical information
-
-class GetAggregateFloorData(Resource):
+# Get Aggregate Floor Data
+class GetAggFl(Resource):
     def get(self, fl_num):
-        #TODO: Return aggregate data of floor number
-        # - Total, left/right
-        # - 
-        return 200
+        if fl_num < 1 or fl_num > 6:
+            return None, 400
+        else:
+            query = Floor.query.filter_by(fl_num=fl_num)      # DB Query
+            left = query.filter(Floor.door=='left').count()   # Left doors
+            right = query.filter(Floor.door=='right').count() # Right doors
+            return {'total': left+right, 'left': left, 'right': right }, 201
 
+# Get Conditional Floor Aggregate Data
+class GetCondFlAgg(Resource):
+    def get(self, fl_num, mob):
+        if fl_num < 1 or fl_num > 6 or mob is None:
+            return None, 400
+        else:
+            query = Floor.query.filter_by(fl_num=fl_num, mob=mob)
+            left = query.filter(Floor.door=='left').count()
+            right = query.filter(Floor.door=='right').count()
+            return { 'total': left+right, 'left': left, 'right'; right }, 201
 
-resource_manager.add_resource(GetAggregateFloorData, '/floor_aggr/<int:fl_num>')
+resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>'
+resource_manager.add_resource(GetAggFl, '/fl_agg/<int:fl_num>')
 
 if __name__ == '__main__':
     app.run(debug=True)
