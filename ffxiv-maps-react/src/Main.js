@@ -1,65 +1,76 @@
-import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
-import { HorizontalBar } from 'react-chartjs-2';
+import React, { Component } from 'react'
+import { Grid, Dropdown, Checkbox, Container } from 'semantic-ui-react'
+import { mobOptions, floorOptions } from './utils'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine } from 'recharts'
 
-const data = {
-	labels: ['Floor 1', 'Floor 2', 'Floor 3', 'Floor 4,', 'Floor 5', 'Floor 6'],
-	datasets: [
-		{
-			label: 'Left',
-			backgroundColor: '#36A2EB',
-			data: [-40,-45,-80,-70,-50,-50]
-		},
-		{
-			label: 'Right',
-			backgroundColor: '#FF6384',
-			data: [60,55,20,30,50,50]
-		}
-	]
-}
+const data = [
+	{name: 'visitor', left: -50, right: 50},
+	{name: 'no visitor', left: -90, right: 10}
+]
 
 export default class Main extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			floorLevel: '',
+			floorMobs: [],
+			floortMob: '',
+			guestVisited: false
+		}
+	}
+	
+	componentDidMount() {
+		
+	}
+
+	componentWillUnmount() {
+
+	}
+
+	changeFloor = (e, data) => {
+		this.setState({
+			floorLevel: data.text,
+			floorMobs: mobOptions[data.value],
+			floortMob: ''
+		})
+	}
+
+	changeMob = (e, data) => {
+		this.setState({
+			floorMob: data.value
+		})
+	}
+
+	toggleGuestVisit = (e, data) => {
+		this.setState((prevState) => ({
+			guestVisited: !prevState.guestVisited
+		}))
+	}
 
 	render() {
 		return (
-			<div className="main">
-				<Container>
-					<Grid>
-						<Header as='h2' className="title"> {this.props.title} </Header>
-						<HorizontalBar
-							data = {data}
-							options = {{
-								responsive: true,
-								scales: {
-									xAxes: [{
-										stacked: true,
-										ticks: {
-											min: -100,
-											max: 100,
-											callback: (value, index, values) => {
-												return value < 0 ? Math.abs(value)+'%' : value+'%'
-											},
-											stepSize: 25
-										}
-									}],
-									yAxes: [{
-										stacked: true,
-									}]
-								},
-								tooltips: {
-									callbacks: {
-										label: (tooltipItem, data) => {
-											let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
-											let xLabel = Math.abs(tooltipItem.xLabel);
-											return datasetLabel + ': ' + xLabel + '%';
-										}
-									}
-								}
-							}}
-						/>
-					</Grid>
-				</Container>
-			</div>
-		)
+			<Container>
+				<Grid padded> 
+					<Grid.Column width={4}>
+					</Grid.Column>
+					<Grid.Column width={3}>
+						<Dropdown placeholder='Select Floor' fluid selection options={floorOptions} onChange={this.changeFloor} />
+					</Grid.Column>
+					<Grid.Column width={3}>
+						<Dropdown placeholder='Select Mob' fluid selection options={this.state.floorMobs} onChange={this.changeMob}/>
+					</Grid.Column>
+					<Grid.Column width={2}>
+						<Checkbox label='Guest' onChange={this.toggleGuestVisit}/>
+					</Grid.Column>
+				</Grid>
+				<BarChart width={600} height={300} layout='vertical' data={data} stackOffset="sign">
+					<YAxis dataKey="name" type="category"/>
+					<XAxis type="number" domain={[-100,100]}/>
+					<ReferenceLine y={0} stroke='#000'/>
+					<Bar dataKey="left" fill="#8884d8" stackId="stack" />
+					<Bar dataKey="right" fill="#82ca9d" stackId="stack"/>
+				</BarChart>
+			</Container>
+		) 
 	}
 }

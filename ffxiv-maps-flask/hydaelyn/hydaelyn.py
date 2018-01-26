@@ -49,7 +49,15 @@ class GetAggFl(Resource):
             query = Floor.query.filter_by(fl_num=fl_num)      # DB Query
             left = query.filter(Floor.door=='left').count()   # Left doors
             right = query.filter(Floor.door=='right').count() # Right doors
-            return {'total': left+right, 'left': left, 'right': right }, 201
+
+            data = {
+                'left': {
+                }
+                'right': {
+                }
+            }
+
+            return data, 201
 
 # Get Conditional Floor Aggregate Data
 class GetCondFlAgg(Resource):
