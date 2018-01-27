@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Dropdown, Checkbox, Container } from 'semantic-ui-react'
+import { Grid, Dropdown, Checkbox, Container, Button } from 'semantic-ui-react'
 import { mobOptions, floorOptions } from './utils'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, LabelList } from 'recharts'
 
@@ -46,6 +46,12 @@ export default class Main extends Component {
 		}))
 	}
 
+	switchDoor = (e, data) => {
+		this.setState({
+			chosenDoor: data.className
+		})
+	}
+
 	render() {
 		return (
 			<div>
@@ -69,12 +75,14 @@ export default class Main extends Component {
 								<Tooltip/>
 								<Legend/>
 								<ReferenceLine y={0} stroke='#000'/>
-								<Bar dataKey="left" fill="#FF6F51" stackId="stack"/>
-								<Bar dataKey="right" fill="#38D196" stackId="stack"/>
+								<Bar dataKey="left" fill="#38D196" stackId="stack"/>
+								<Bar dataKey="right" fill="#FF6F51" stackId="stack"/>
 							</BarChart>
 						</Grid.Row>
 						<Grid.Row centered>
-							
+							<Button active={ this.state.chosenDoor == "leftDoor"} onClick={this.switchDoor} className="leftDoor"> Left </Button>
+							<Button active={ this.state.chosenDoor == "rightDoor"} onClick={this.switchDoor} className="rightDoor"> Right</Button>
+							<Button> Submit </Button>
 						</Grid.Row>
 					</Grid>
 				</Container>
