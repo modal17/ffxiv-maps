@@ -37,6 +37,7 @@ export default class Main extends Component {
 	changeMob = (e, data) => {
 		this.setState({
 			floorMob: data.value
+
 		})
 	}
 
@@ -56,9 +57,7 @@ export default class Main extends Component {
 		return (
 			<div>
 				<Container>
-					<Grid padded> 
-						<Grid.Column width={4}>
-						</Grid.Column>
+					<Grid padded centered={true}> 
 						<Grid.Column width={3}>
 							<Dropdown placeholder='Select Floor' fluid selection options={floorOptions} onChange={this.changeFloor} />
 						</Grid.Column>
@@ -68,7 +67,12 @@ export default class Main extends Component {
 						<Grid.Column width={2}>
 							<Checkbox label='Guest' onChange={this.toggleGuestVisit}/>
 						</Grid.Column>
+						<Grid.Column width={3}>
+							{/* TODO Call fetch for floor data and dynamically change the bar chart */}
+							<Button> Show Stats </Button>
+						</Grid.Column>
 						<Grid.Row centered column={4}>
+							{/* BarChart here. Probably move into another component? */}
 							<BarChart width={800} height={150} layout='vertical' data={data} stackOffset="sign">
 								<YAxis dataKey="name" type="category" hide="true"/>
 								<XAxis type="number" domain={[-100,100]} tickFormatter={(tick)=>{ return Math.abs(tick)+"%" }} padding={{ left: 20, right:20}}/>
@@ -82,6 +86,7 @@ export default class Main extends Component {
 						<Grid.Row centered>
 							<Button active={ this.state.chosenDoor == "leftDoor"} onClick={this.switchDoor} className="leftDoor"> Left </Button>
 							<Button active={ this.state.chosenDoor == "rightDoor"} onClick={this.switchDoor} className="rightDoor"> Right</Button>
+							{ /* TODO Submit the form to flask */ }
 							<Button> Submit </Button>
 						</Grid.Row>
 					</Grid>

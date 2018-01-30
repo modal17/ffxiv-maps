@@ -70,6 +70,11 @@ class GetCondFlAgg(Resource):
             right = query.filter(Floor.door=='right').count()
             return { 'total': left+right, 'left': left, 'right'; right }, 201
 
+# Provide entire statistical data TODO
+class GetAggData(Resource):
+    def get(self):
+        return None 
+
 resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>'
 resource_manager.add_resource(GetAggFl, '/fl_agg/<int:fl_num>')
 
