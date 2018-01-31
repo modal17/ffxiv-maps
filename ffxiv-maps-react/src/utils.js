@@ -5,15 +5,15 @@ export const mobOptions = {
 		{ key: 'halgai', value: 'halgai', text: 'Halgai' },
 		{ key: 'mossling', value: 'mossling', text: 'Mossling' }],
 	2 : [
-		{ key: 'bloodglide', value: 'bloodglide', text: 'Bloodglide/Achamoth/Kongamato' },
+		{ key: 'bloodglider', value: 'bloodglider', text: 'Bloodglider/Achamoth/Kongamato' },
 		{ key: 'rockfin', value: 'rockfin', text: 'Rockfin/Ogrebon/Ray' },
-		{ key: 'Placeholder 2-3', value: 'Placeholder 2-3', text: 'Placeholder 2-3' },
+		{ key: 'craklaw', value: 'craklaw', text: 'Craklaw/Matamata/Ruszor' },
 		{ key: 'Placeholder 2-4', value: 'Placeholder 2-4', text: 'Placeholder 2-4' }],
 	3 : [
 		{ key: 'fan', value: 'fan', text: 'Fan/Dhruva/Cardian' },
-		{ key: 'Placeholder 3-2', value: 'Placeholder 3-2', text: 'Placeholder 3-2' },
-		{ key: 'Placeholder 3-3', value: 'Placeholder 3-3', text: 'Placeholder 3-3' },
-		{ key: 'Placeholder 3-4', value: 'Placeholder 3-4', text: 'Placeholder 3-4' }],
+		{ key: 'wraith', value: 'wraith', text: 'Wraith/Corse/Keeper' },
+		{ key: 'dhara', value: 'dhara', text: 'Dhara/Anala/Apa/Anila' },
+		{ key: 'hippo', value: 'hippo', text: 'Hippo/Monk/Bombfish/Coralshell' }],
 	4: [
 		{ key: 'Placeholder 4-1', value: 'Placeholder 4-1', text: 'Placeholder 4-1' },
 		{ key: 'Placeholder 4-2', value: 'Placeholder 4-2', text: 'Placeholder 4-2' },
@@ -25,7 +25,6 @@ export const mobOptions = {
 		{ key: 'Placeholder 5-3', value: 'Placeholder 5-3', text: 'Placeholder 5-3' },
 		{ key: 'Placeholder 5-4', value: 'Placeholder 5-4', text: 'Placeholder 5-4' }],
 	6: [
-		'Pteranondon/Gowrow/Gallimimus',
 		{ key: 'pteranondon', value: 'pteranondon', text: 'Pteranondon/Gowrow/Gallimimus' },
 		{ key: 'Placeholder 6-2', value: 'Placeholder 6-2', text: 'Placeholder 6-2' },
 		{ key: 'Placeholder 6-3', value: 'Placeholder 6-3', text: 'Placeholder 6-3' },

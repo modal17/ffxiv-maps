@@ -11,8 +11,8 @@ const FloorStatChart = props => {
 			<Tooltip/>
 			<Legend/>
 			<ReferenceLine y={0} stroke='#000'/>
-			<Bar dataKey="left" fill="#38D196" stackId="stack"/>
-			<Bar dataKey="right" fill="#FF6F51" stackId="stack"/>
+			<Bar dataKey="left" fill="#91c7b1" stackId="stack"/>
+			<Bar dataKey="right" fill="#b33951" stackId="stack"/>
 		</BarChart>
 	)
 }

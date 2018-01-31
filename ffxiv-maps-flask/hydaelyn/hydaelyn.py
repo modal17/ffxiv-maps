@@ -5,10 +5,9 @@ from flask_restful import Resource, Api # Resources - request transformed data
 from flask_cors import CORS
 
 app = Flask(__name__)   # Starting the Flask app.
-CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] =\
-        'sqlite:///../hydaelyn.db'
+        'sqlite:///../app.db'
                         # Config databse using SQLAlchemy.
 db = SQLAlchemy(app)    # Passing the database.
 
@@ -63,11 +62,11 @@ class GetAggFl(Resource):
 
 # Get Conditional Floor Aggregate Data
 class GetCondFlAgg(Resource):
-    def get(self, fl_num, mob):
+    def get(self, fl_num, mob, vis):
         if fl_num < 1 or fl_num > 6 or mob is None:
             return None, 400
         else:
-            query = Floor.query.filter_by(fl_num=fl_num, mob=mob)
+            query = Floor.query.filter_by(fl_num=fl_num, mob=mob, visitor=vis)
             left = query.filter(Floor.door=='leftDoor').count()
             right = query.filter(Floor.door=='rightDoor').count()
             return { 'total': left+right, 'left': left, 'right': right }, 201
@@ -77,7 +76,7 @@ class GetAggData(Resource):
     def get(self):
         return None 
 
-resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>')
+resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>/<int:vis>')
 resource_manager.add_resource(GetAggFl, '/fl_agg/<int:fl_num>')
 
 if __name__ == '__main__':
