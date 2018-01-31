@@ -12,6 +12,7 @@ flask-sqlalchemy = "*"
 flask-restless = "*"
 requests = "*"
 flask-restful = "*"
+flask-cors = "*"
 
 
 [dev-packages]

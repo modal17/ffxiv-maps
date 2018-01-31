@@ -2,8 +2,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager   # Simple API endpoints
 from flask_restful import Resource, Api # Resources - request transformed data
+from flask_cors import CORS
 
 app = Flask(__name__)   # Starting the Flask app.
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] =\
         'sqlite:///../hydaelyn.db'
@@ -14,11 +16,11 @@ db = SQLAlchemy(app)    # Passing the database.
 class Floor(db.Model):
     ''' A floor is one of six floors of a map instance. '''
     id = db.Column(db.Integer, primary_key=True)
-    fl_num = db.Column(db.Integer, unique=True)
+    fl_num = db.Column(db.Integer)
     mob = db.Column(db.String(80))
     visitor = db.Column(db.Boolean)
     door = db.Column(db.String(8))
-    map_id = db.Column(db.Integer, db.ForeignKey('map.id'), nullable=False)
+    map_id = db.Column(db.Integer, db.ForeignKey('map.id'))
 
 class Map(db.Model):
     ''' A single map instance. '''
@@ -46,13 +48,13 @@ class GetAggFl(Resource):
         if fl_num < 1 or fl_num > 6:
             return None, 400
         else:
-            query = Floor.query.filter_by(fl_num=fl_num)      # DB Query
-            left = query.filter(Floor.door=='left').count()   # Left doors
-            right = query.filter(Floor.door=='right').count() # Right doors
+            query = Floor.query.filter_by(fl_num=floor)      # DB Query
+            left = query.filter(Floor.door=='leftDoor').count()   # Left doors
+            right = query.filter(Floor.door=='rightDoor').count() # Right doors
 
             data = {
                 'left': {
-                }
+                },
                 'right': {
                 }
             }
@@ -66,16 +68,16 @@ class GetCondFlAgg(Resource):
             return None, 400
         else:
             query = Floor.query.filter_by(fl_num=fl_num, mob=mob)
-            left = query.filter(Floor.door=='left').count()
-            right = query.filter(Floor.door=='right').count()
-            return { 'total': left+right, 'left': left, 'right'; right }, 201
+            left = query.filter(Floor.door=='leftDoor').count()
+            right = query.filter(Floor.door=='rightDoor').count()
+            return { 'total': left+right, 'left': left, 'right': right }, 201
 
 # Provide entire statistical data TODO
 class GetAggData(Resource):
     def get(self):
         return None 
 
-resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>'
+resource_manager.add_resource(GetCondFlAgg, '/cnd_agg/<int:fl_num>/<string:mob>')
 resource_manager.add_resource(GetAggFl, '/fl_agg/<int:fl_num>')
 
 if __name__ == '__main__':
