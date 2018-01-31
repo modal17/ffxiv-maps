@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Header, Divider } from 'semantic-ui-react'
-import Main from './Main'
+import { Header } from 'semantic-ui-react'
 import FloorEntry from './FloorEntry'
 
 export default class App extends Component {

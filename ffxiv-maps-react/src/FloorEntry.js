@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Segment, Grid, Dropdown, Checkbox, Container, Button, Form, Header, Divider, Statistic, Transition } from 'semantic-ui-react'
-import { mobOptions, floorOptions } from './utils'
+import { Grid, Container, Button, Form, Header, Statistic, Transition } from 'semantic-ui-react'
+import { mobOptions } from './utils'
 
 const initState = { 
     floor: null,
@@ -47,24 +47,24 @@ export default class FloorEntry extends Component {
     }
 
     getFloorStats = () => {
-        var url = 'http://localhost:5000/cnd_agg/' + this.state.floor +'/'+ this.state.mob +'/'+ (this.state.visitor ? "1" : "0")
+        var url = '/cnd_agg/' + this.state.floor +'/'+ this.state.mob +'/'+ (this.state.visitor ? "1" : "0")
 		fetch(url)
-			.then( (response) => {
-				if (response.status >= 400) {
-                    //TODO Catch and handle error - notify user of problem.
-					throw new Error("Bad reponse from server")
-				}
-				return response.json()
-			})
-			.then( (data) => {
-                var left = Math.round(data.left/data.total*100)
-                var right = 100 - left
-                this.setState({
-                    leftStat: left,
-                    rightStat: right,
-                    betterDoor: left > right ? "left" : "right"
-                })
-			})
+		.then( (response) => {
+            if (response.status >= 400) {
+                //TODO Catch and handle error - notify user of problem.
+                throw new Error("Bad reponse from server")
+            }
+            return response.json()
+        })
+        .then( (data) => {
+            var left = Math.round(data.left/data.total*100)
+            var right = 100 - left
+            this.setState({
+                leftStat: left,
+                rightStat: right,
+                betterDoor: left > right ? "left" : "right"
+            })
+        })
     }
 
     selectDoor = (e, data) => {
@@ -81,8 +81,8 @@ export default class FloorEntry extends Component {
             door: this.state.door
         }
 
-        var url = 'http://localhost:5000/api/floor'
-		fetch(url, {
+      var url = '/api/floor'
+			fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: new Headers({

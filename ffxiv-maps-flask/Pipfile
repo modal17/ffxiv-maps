@@ -7,12 +7,11 @@ name = "pypi"
 
 [packages]
 
-flask = "*"
-flask-sqlalchemy = "*"
-flask-restless = "*"
+Flask = "*"
+Flask-SQLAlchemy = "*"
+Flask-Restless = "*"
 requests = "*"
-flask-restful = "*"
-flask-cors = "*"
+Flask-RESTful = "*"
 awsebcli = "*"
 
 

@@ -2,7 +2,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager   # Simple API endpoints
 from flask_restful import Resource, Api # Resources - request transformed data
-from flask_cors import CORS
 
 app = Flask(__name__)   # Starting the Flask app.
 
