@@ -8,8 +8,8 @@ const initState = {
     door: null,
     mobOptions: [],
     visitor: false,
-    leftStat: 'N/A',
-    rightStat: 'N/A',
+    leftStat: 0,
+    rightStat: 0,
     betterDoor: null
 }
 
@@ -30,7 +30,8 @@ export default class FloorEntry extends Component {
     selectFloor = (e, data) => {
         this.setState({    
             floor: data.content,
-            mobOptions: mobOptions[data.content]
+						mobOptions: mobOptions[data.content],
+						mob: null
          })
     }
 
@@ -56,7 +57,8 @@ export default class FloorEntry extends Component {
             }
             return response.json()
         })
-        .then( (data) => {
+				.then( (data) => {
+						if (data.total === 0) return
             var left = Math.round(data.left/data.total*100)
             var right = 100 - left
             this.setState({
