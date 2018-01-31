@@ -47,8 +47,8 @@ class GetAggFl(Resource):
             return None, 400
         else:
             query = Floor.query.filter_by(fl_num=floor)      # DB Query
-            left = query.filter(Floor.door=='leftDoor').count()   # Left doors
-            right = query.filter(Floor.door=='rightDoor').count() # Right doors
+            left = query.filter(Floor.door=='Left').count()   # Left doors
+            right = query.filter(Floor.door=='Right').count() # Right doors
 
             data = {
                 'left': {
@@ -66,8 +66,8 @@ class GetCondFlAgg(Resource):
             return None, 400
         else:
             query = Floor.query.filter_by(fl_num=fl_num, mob=mob, visitor=vis)
-            left = query.filter(Floor.door=='leftDoor').count()
-            right = query.filter(Floor.door=='rightDoor').count()
+            left = query.filter(Floor.door=='Left').count()
+            right = query.filter(Floor.door=='Right').count()
             return { 'total': left+right, 'left': left, 'right': right }, 201
 
 # Provide entire statistical data TODO
