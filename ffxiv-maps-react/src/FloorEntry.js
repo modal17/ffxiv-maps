@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Container, Button, Form, Header, Statistic, Transition } from 'semantic-ui-react'
+import { Grid, Container, Button, Form, Header, Statistic, Transition, Divider, Segment } from 'semantic-ui-react'
 import { mobOptions } from './utils'
 
 const initState = { 
@@ -10,7 +10,9 @@ const initState = {
     visitor: false,
     leftStat: 0,
     rightStat: 0,
-    betterDoor: null
+		betterDoor: null,
+		total: 'N/A',
+		display: ''
 }
 
 export default class FloorEntry extends Component {
@@ -58,13 +60,22 @@ export default class FloorEntry extends Component {
             return response.json()
         })
 				.then( (data) => {
-						if (data.total === 0) return
-            var left = Math.round(data.left/data.total*100)
-            var right = 100 - left
-            this.setState({
-                leftStat: left,
-                rightStat: right,
-                betterDoor: left > right ? "left" : "right"
+						var left = 0
+						var right = 0
+
+						if (data.total > 0) {
+            	left = Math.round(data.left/data.total*100)
+							right = 100 - left
+						}
+						
+						this.setState((prevState) => {
+								return {
+										leftStat: left,
+										rightStat: right,
+										betterDoor: left > right ? "left" : "right",
+										total: data.total,
+										display: 'floor ' + prevState.floor + ':' + prevState.mob + ', visitor: ' + (prevState.visitor ? 'yes' : 'no')
+								}
             })
         })
     }
@@ -130,22 +141,30 @@ export default class FloorEntry extends Component {
                 </Grid>
                 <Header as="h3" dividing> Correct Door Percentages </Header>
                 <Grid>
-                    <Grid.Row>  
-                        <Statistic.Group>
-                            <Statistic color={this.state.betterDoor === "left" ? "blue" : "black"}
-                                    size={this.state.betterDoor === "left" ? "large" : ""}>
-                                <Statistic.Value>{this.state.leftStat}</Statistic.Value>
-                                <Statistic.Label>% Left</Statistic.Label>
-                            </Statistic>
-                            <Statistic color={this.state.betterDoor === "right" ? "blue" : "black"}
-                                    size={this.state.betterDoor === "right" ? "large" : ""}>
-                                <Statistic.Value>{this.state.rightStat}</Statistic.Value>
-                                <Statistic.Label>% Right</Statistic.Label>
-                            </Statistic>
-                        </Statistic.Group>
-                    </Grid.Row>
+										<Grid.Row>  
+												<Statistic.Group>
+														<Statistic color={this.state.betterDoor === "left" ? "blue" : "black"}
+																		size={this.state.betterDoor === "left" ? "large" : ""}>
+																<Statistic.Value>{this.state.leftStat}</Statistic.Value>
+																<Statistic.Label>% Left</Statistic.Label>
+														</Statistic>
+														<Statistic color={this.state.betterDoor === "right" ? "blue" : "black"}
+																		size={this.state.betterDoor === "right" ? "large" : ""}>
+																<Statistic.Value>{this.state.rightStat}</Statistic.Value>
+																<Statistic.Label>% Right</Statistic.Label>
+															</Statistic>
+															<Statistic>
+																<Statistic.Value>{this.state.total}</Statistic.Value>
+																<Statistic.Label>Of Total</Statistic.Label>
+															</Statistic>
+												</Statistic.Group>
+										</Grid.Row>
+										<Grid.Row>
+												Displaying: {this.state.display}
+										</Grid.Row>
                     <Button disabled={this.state.floor == null || this.state.mob == null} content="Display Floor Statistics" primary onClick={this.getFloorStats}/>
-                </Grid>
+								</Grid>
+								<Divider hidden/>
                 <Header as="h3" dividing> Select Correct Door </Header>
                 <Grid verticalAlign="middle">
                     <Grid.Column width={4}>
