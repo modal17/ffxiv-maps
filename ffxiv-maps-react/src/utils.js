@@ -8,20 +8,20 @@ export const mobOptions = {
 		{ key: 'bloodglider', value: 'bloodglider', text: 'Bloodglider/Achamoth/Kongamato' },
 		{ key: 'rockfin', value: 'rockfin', text: 'Rockfin/Ogrebon/Ray' },
 		{ key: 'craklaw', value: 'craklaw', text: 'Craklaw/Matamata/Ruszor' },
-		{ key: 'Placeholder 2-4', value: 'Placeholder 2-4', text: 'Placeholder 2-4' }],
+		{ key: 'fan', value: 'fan', text: 'Fan/Dhruva/Cardian' }],
 	3 : [
-		{ key: 'fan', value: 'fan', text: 'Fan/Dhruva/Cardian' },
+		{ key: 'phoebad', value: 'phoebad', text: 'Phoebad/Chelone/Vepar/Soblyn' },
 		{ key: 'wraith', value: 'wraith', text: 'Wraith/Corse/Keeper' },
 		{ key: 'dhara', value: 'dhara', text: 'Dhara/Anala/Apa/Anila' },
 		{ key: 'hippo', value: 'hippo', text: 'Hippo/Monk/Bombfish/Coralshell' }],
 	4: [
-		{ key: 'Placeholder 4-1', value: 'Placeholder 4-1', text: 'Placeholder 4-1' },
-		{ key: 'Placeholder 4-2', value: 'Placeholder 4-2', text: 'Placeholder 4-2' },
+		{ key: 'chuluu', value: 'chuluu', text: 'Chuluu/Urolith/Fan' },
+		{ key: 'wraith', value: 'Wraith/Keeper/IronCorse', text: 'Wraith/Keeper/IronCorse' },
 		{ key: 'Placeholder 4-3', value: 'Placeholder 4-3', text: 'Placeholder 4-3' },
 		{ key: 'Placeholder 4-4', value: 'Placeholder 4-4', text: 'Placeholder 4-4' }],
 	5: [
 		{ key: 'tenya', value: 'tenya', text: 'Tengu/Kiyofusa/Hanya/Onmitsu' },
-		{ key: 'Placeholder 5-2', value: 'Placeholder 5-2', text: 'Placeholder 5-2' },
+		{ key: 'grenade', value: 'grenade', text: 'Grenade/Yeti/Commander/Mammoth' },
 		{ key: 'Placeholder 5-3', value: 'Placeholder 5-3', text: 'Placeholder 5-3' },
 		{ key: 'Placeholder 5-4', value: 'Placeholder 5-4', text: 'Placeholder 5-4' }],
 	6: [
