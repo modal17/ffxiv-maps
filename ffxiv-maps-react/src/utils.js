@@ -11,7 +11,7 @@ export const mobOptions = {
 		{ key: 'fan', value: 'fan', text: 'Fan/Dhruva/Cardian' }],
 	3 : [
 		{ key: 'phoebad', value: 'phoebad', text: 'Phoebad/Chelone/Vepar/Soblyn' },
-		{ key: 'wraith', value: 'wraith', text: 'Wraith/Corse/Keeper' },
+		{ key: 'marid', value: 'marid', text: 'Marid/Sasquatch/Dhalmel/Gagana' },
 		{ key: 'dhara', value: 'dhara', text: 'Dhara/Anala/Apa/Anila' },
 		{ key: 'hippo', value: 'hippo', text: 'Hippo/Monk/Bombfish/Coralshell' }],
 	4: [
