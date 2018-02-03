@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager   # Simple API endpoints
 from flask_restful import Resource, Api # Resources - request transformed data
+from flask_migrate import Migrate
 
 app = Flask(__name__)   # Starting the Flask app.
 
@@ -9,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
         'sqlite:///../app.db'
                         # Config databse using SQLAlchemy.
 db = SQLAlchemy(app)    # Passing the database.
+migrate = Migrate(app, db)
 
 ################# Models #####################
 class Floor(db.Model):
@@ -18,6 +20,7 @@ class Floor(db.Model):
     mob = db.Column(db.String(80))
     visitor = db.Column(db.Boolean)
     door = db.Column(db.String(8))
+    t_stamp = db.Column(db.DateTime, server_default=db.func.now())
     map_id = db.Column(db.Integer, db.ForeignKey('map.id'))
 
 class Map(db.Model):
