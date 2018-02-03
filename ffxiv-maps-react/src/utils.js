@@ -16,7 +16,7 @@ export const mobOptions = {
 		{ key: 'hippo', value: 'hippo', text: 'Hippo/Monk/Bombfish/Coralshell' }],
 	4: [
 		{ key: 'chuluu', value: 'chuluu', text: 'Chuluu/Urolith/Fan' },
-		{ key: 'wraith', value: 'Wraith/Keeper/IronCorse', text: 'Wraith/Keeper/IronCorse' },
+		{ key: 'wraith', value: 'wraith', text: 'Wraith/Keeper/IronCorse' },
 		{ key: 'Placeholder 4-3', value: 'Placeholder 4-3', text: 'Placeholder 4-3' },
 		{ key: 'Placeholder 4-4', value: 'Placeholder 4-4', text: 'Placeholder 4-4' }],
 	5: [
