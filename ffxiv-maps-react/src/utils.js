@@ -17,7 +17,7 @@ export const mobOptions = {
 	4: [
 		{ key: 'chuluu', value: 'chuluu', text: 'Chuluu/Urolith/Fan' },
 		{ key: 'wraith', value: 'wraith', text: 'Wraith/Keeper/IronCorse' },
-		{ key: 'Placeholder 4-3', value: 'Placeholder 4-3', text: 'Placeholder 4-3' },
+		{ key: 'arachne', value: 'arachne', text: 'Arachne/Banemite/Diremite' },
 		{ key: 'Placeholder 4-4', value: 'Placeholder 4-4', text: 'Placeholder 4-4' }],
 	5: [
 		{ key: 'tenya', value: 'tenya', text: 'Tengu/Kiyofusa/Hanya/Onmitsu' },
@@ -27,7 +27,7 @@ export const mobOptions = {
 	6: [
 		{ key: 'pteranondon', value: 'pteranondon', text: 'Pteranondon/Gowrow/Gallimimus' },
 		{ key: 'minotaur', value: 'Minotaur/Vanara/Matanga/MuudSuud', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
-		{ key: 'Placeholder 6-3', value: 'Placeholder 6-3', text: 'Placeholder 6-3' },
+		{ key: 'purbol', value: 'purbol', text: 'Purbol/Ochuu/CorpseFlower/Belladonna' },
 		{ key: 'Placeholder 6-4', value: 'Placeholder 6-4', text: 'Placeholder 6-4' }]
 }
 
