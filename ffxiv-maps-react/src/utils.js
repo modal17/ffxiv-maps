@@ -26,7 +26,7 @@ export const mobOptions = {
 		{ key: 'bomb', value: 'bomb', text: 'Bomb/Ogre/Drake/Anala' }],
 	6: [
 		{ key: 'pteranondon', value: 'pteranondon', text: 'Pteranondon/Gowrow/Gallimimus' },
-		{ key: 'minotaur', value: 'Minotaur/Vanara/Matanga/MuudSuud', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
+		{ key: 'minotaur', value: 'minotaur', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
 		{ key: 'purbol', value: 'purbol', text: 'Purbol/Ochuu/CorpseFlower/Belladonna' },
 		{ key: 'treant', value: 'treant', text: 'Treant/Roselet/Golem/Leshy' }]
 }
