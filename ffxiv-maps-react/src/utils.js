@@ -23,12 +23,12 @@ export const mobOptions = {
 		{ key: 'tenya', value: 'tenya', text: 'Tengu/Kiyofusa/Hanya/Onmitsu' },
 		{ key: 'grenade', value: 'grenade', text: 'Grenade/Yeti/Commander/Mammoth' },
 		{ key: 'shuck', value: 'shuck', text: 'Shuck/Canal Banshee/Specter/Koja' },
-		{ key: 'Placeholder 5-4', value: 'Placeholder 5-4', text: 'Placeholder 5-4' }],
+		{ key: 'bomb', value: 'bomb', text: 'Bomb/Ogre/Drake/Anala' }],
 	6: [
 		{ key: 'pteranondon', value: 'pteranondon', text: 'Pteranondon/Gowrow/Gallimimus' },
 		{ key: 'minotaur', value: 'Minotaur/Vanara/Matanga/MuudSuud', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
 		{ key: 'purbol', value: 'purbol', text: 'Purbol/Ochuu/CorpseFlower/Belladonna' },
-		{ key: 'Placeholder 6-4', value: 'Placeholder 6-4', text: 'Placeholder 6-4' }]
+		{ key: 'treant', value: 'treant', text: 'Treant/Roselet/Golem/Leshy' }]
 }
 
 export const floorOptions = [
