@@ -18,7 +18,7 @@ export const mobOptions = {
 		{ key: 'chuluu', value: 'chuluu', text: 'Chuluu/Urolith/Fan' },
 		{ key: 'wraith', value: 'wraith', text: 'Wraith/Keeper/IronCorse' },
 		{ key: 'arachne', value: 'arachne', text: 'Arachne/Banemite/Diremite' },
-		{ key: 'Placeholder 4-4', value: 'Placeholder 4-4', text: 'Placeholder 4-4' }],
+		{ key: 'scorpion', value: 'scorpion', text: 'Scorpion/Scorpling/Crab' }],
 	5: [
 		{ key: 'tenya', value: 'tenya', text: 'Tengu/Kiyofusa/Hanya/Onmitsu' },
 		{ key: 'grenade', value: 'grenade', text: 'Grenade/Yeti/Commander/Mammoth' },
