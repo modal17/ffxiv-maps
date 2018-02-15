@@ -20,7 +20,6 @@ class Floor(db.Model):
     mob = db.Column(db.String(80))
     visitor = db.Column(db.Boolean)
     door = db.Column(db.String(8))
-    t_stamp = db.Column(db.DateTime, server_default=db.func.now())
     map_id = db.Column(db.Integer, db.ForeignKey('map.id'))
 
 class Map(db.Model):
