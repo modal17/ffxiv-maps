@@ -17,18 +17,18 @@ export const mobOptions = {
 	4: [
 		{ key: 'chuluu', value: 'chuluu', text: 'Chuluu/Urolith/Fan' },
 		{ key: 'wraith', value: 'wraith', text: 'Wraith/Keeper/IronCorse' },
-		{ key: 'Placeholder 4-3', value: 'Placeholder 4-3', text: 'Placeholder 4-3' },
-		{ key: 'Placeholder 4-4', value: 'Placeholder 4-4', text: 'Placeholder 4-4' }],
+		{ key: 'arachne', value: 'arachne', text: 'Arachne/Banemite/Diremite' },
+		{ key: 'scorpion', value: 'scorpion', text: 'Scorpion/Scorpling/Crab' }],
 	5: [
 		{ key: 'tenya', value: 'tenya', text: 'Tengu/Kiyofusa/Hanya/Onmitsu' },
 		{ key: 'grenade', value: 'grenade', text: 'Grenade/Yeti/Commander/Mammoth' },
 		{ key: 'shuck', value: 'shuck', text: 'Shuck/Canal Banshee/Specter/Koja' },
-		{ key: 'Placeholder 5-4', value: 'Placeholder 5-4', text: 'Placeholder 5-4' }],
+		{ key: 'bomb', value: 'bomb', text: 'Bomb/Ogre/Drake/Anala' }],
 	6: [
 		{ key: 'pteranondon', value: 'pteranondon', text: 'Pteranondon/Gowrow/Gallimimus' },
-		{ key: 'minotaur', value: 'Minotaur/Vanara/Matanga/MuudSuud', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
-		{ key: 'Placeholder 6-3', value: 'Placeholder 6-3', text: 'Placeholder 6-3' },
-		{ key: 'Placeholder 6-4', value: 'Placeholder 6-4', text: 'Placeholder 6-4' }]
+		{ key: 'minotaur', value: 'minotaur', text: 'Minotaur/Vanara/Matanga/MuudSuud' },
+		{ key: 'purbol', value: 'purbol', text: 'Purbol/Ochuu/CorpseFlower/Belladonna' },
+		{ key: 'treant', value: 'treant', text: 'Treant/Roselet/Golem/Leshy' }]
 }
 
 export const floorOptions = [
